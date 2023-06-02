@@ -1,5 +1,10 @@
 import os
 import sys
+
+# currentdir = os.path.dirname(os.path.realpath(__file__)) #components
+# parentdir = os.path.dirname(currentdir) #src
+# sys.path.append(parentdir)   
+
 from src.exceptions import CustomException
 from src.logger import logging
 import pandas as pandas
@@ -29,7 +34,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info('Data Ingestion methods Starts')
         try:
-            df = pd.read_csv("https://raw.githubusercontent.com/krishnaik06/FSDSRegression/main/notebooks/data/gemstone.csv")
+            df = pd.read_csv("..\notebooks\data\gemstone.csv")
             logging.info('Raw Dataset read as pandas Dataframe')
 
             os.makedirs(os.path.dirname(self.ingestionconfig.raw_data_path),exist_ok=True)
